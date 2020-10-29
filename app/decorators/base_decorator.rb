@@ -20,4 +20,8 @@ class BaseDecorator
   def self.to_proc
     ->(o) { new(o) }
   end
+
+  def current_session
+    Current.session
+  end
 end

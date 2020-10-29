@@ -1,7 +1,8 @@
 class VideosController < AuthenticatedController
-  skip_before_action :authenticate, :only => [:index]
-
   before_action :set_video, only: [:show]
+
+  skip_before_action :authenticate, :only => [:index, :show]
+  before_action      :authenticate, :only => :show, unless: -> { @video.free? }
 
   # GET /videos
   def index
