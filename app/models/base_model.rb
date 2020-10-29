@@ -39,7 +39,11 @@ class BaseModel
   end
 
   def self.find(id)
-    new(source.find(id: id))
+    begin
+      new(source.find(id: id))
+    rescue Zype::Client::NotFound => e
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   def self.create(**params)
