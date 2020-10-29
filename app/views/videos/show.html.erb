@@ -9,11 +9,11 @@
     <div class="w-full flex flex-col pb-4">
       <div class="flex">
         <span class="font-bold flex-grow"><%= @video.title %></span>
-        <% unless @video.user_is_entitled? %>
+        <% if @video.needs_subscription? && !@video.user_is_entitled? %>
           <button class="bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
             Subscribe Now
           </button>
-      <% end %>
+        <% end %>
       </div>
       <span class="text-xs text-gray-700 mt-2`"><%= @video.created_at %></span>
     </div>

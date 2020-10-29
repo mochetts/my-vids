@@ -25,7 +25,7 @@ class VideoDecorator < BaseDecorator
   end
 
   def user_is_entitled?
-    needs_subscription? && VideoEntitlement.user_is_entitled_for?(video)
+    VideoEntitlement.user_is_entitled_for?(video)
   end
 
   def player_url
@@ -38,6 +38,6 @@ private
   # However, it seems that the players API is behind an auth wall (requires auth_token).
   # This means that we have to build the URL ourselves, manually passing the access token.
   def player_access_query
-    current_session.authenticated? ? "access_token=#{current_session.access_token}" : 'api_key=roXcCjH-K5sec-d8IrBZ2AEIZttBAHdt3ivLAql6ywT9wytXbVF5xso1o70DgHcr'
+    current_session.authenticated? ? "access_token=#{current_session.access_token}" : "api_key=#{Settings.zype.api_key}"
   end
 end

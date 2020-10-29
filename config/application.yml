@@ -1,5 +1,6 @@
 defaults: &defaults
   zype:
+    api_key: <%= Global.get('ZYPE_API_KEY', 'fake_api_key') %>
     app_key: <%= Global.get('ZYPE_APP_KEY', 'fake_key') %>
     client_id: <%= Global.get('ZYPE_CLIENT_ID', 'fake_id') %>
     client_secret: <%= Global.get('ZYPE_CLIENT_SECRET', 'fake_secret') %>

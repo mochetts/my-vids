@@ -1,8 +1,8 @@
 module My::Base
   extend ActiveSupport::Concern
 
-  def initialize
-    super('app_key')
+  def initialize(auth = 'app_key')
+    super(auth)
   end
 
   class_methods do
