@@ -1,0 +1,5 @@
+development:
+  zype:
+    app_key: your-zype-app-key
+    client_id: your-zype-client-id
+    client_secret: your-zype-client-secret

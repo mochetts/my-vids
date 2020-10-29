@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ZypeChallenge</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
+  </head>
+
+  <body class="bg-gray-200 flex justify-center items-center flex-col w-full">
+    <%= render "shared/navbar" %>
+
+    <% flash.each do |type, msg| %>
+      <% if type == 'alert' %>
+        <div class="w-full bg-orange-100 border-orange-500 text-orange-700 p-4 text-center" role="alert">
+          <p class="font-bold">Whoops!</p>
+          <p id="alert"><%= msg %></p>
+        </div>
+      <% end %>
+
+      <% if type == 'notice' %>
+        <div class="w-full bg-blue-100 border-blue-500 text-blue-700 p-4 text-center" role="alert">
+          <p id="notice"><%= msg %></p>
+        </div>
+      <div>
+      <% end %>
+    <% end %>
+
+    <div class="mt-10 w-full flex justify-center">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+defaults: &defaults
+  zype:
+    app_key: <%= Global.get('ZYPE_APP_KEY', 'fake_key') %>
+    client_id: <%= Global.get('ZYPE_CLIENT_ID', 'fake_id') %>
+    client_secret: <%= Global.get('ZYPE_CLIENT_SECRET', 'fake_secret') %>
+  session:
+    expiration: 14
+
+development:
+  <<: *defaults

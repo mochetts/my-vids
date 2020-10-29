@@ -1,0 +1,1 @@
+Zype.configuration.app_key = Settings.zype.app_key
