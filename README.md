@@ -1,24 +1,18 @@
-# README
+This is a proof of concept RoR app that utilizes Zype to fetch and display videos from a given content creator.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Demo
 
-Things you may want to cover:
+To see this project running visit https://my-vids.herokuapp.com/
 
-* Ruby version
+## Architecture
 
-* System dependencies
+_Coming Soon_
 
-* Configuration
+## Patterns Used
 
-* Database creation
+_Coming Soon_
 
-* Database initialization
 
-* How to run the test suite
+## Testing
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+_Coming Soon_
