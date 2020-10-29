@@ -4,29 +4,20 @@ class SessionsController < ApplicationController
   end
 
   # POST /sessions
-  # POST /sessions.json
   def create
     oauth_session = new_session
-    respond_to do |format|
-      if !oauth_session.has_errors?
-        oauth_session.save_to(session)
-        format.html { redirect_to videos_path }
-        format.json { render :show, status: :created, location: oauth_session }
-      else
-        format.html { redirect_back alert: oauth_session.errors.join(', '), fallback_location: new_session_path }
-        format.json { render json: oauth_session.errors, status: :unprocessable_entity }
-      end
+    if !oauth_session.has_errors?
+      oauth_session.save_to(session)
+      redirect_to session.delete(:intented_url) || videos_path
+    else
+      redirect_back alert: oauth_session.errors.join(', '), fallback_location: new_session_path
     end
   end
 
   # DELETE /sessions
-  # DELETE /sessions.json
   def destroy
     session.clear
-    respond_to do |format|
-      format.html { redirect_to new_session_url }
-      format.json { head :no_content }
-    end
+    redirect_back fallback_location: new_session_path
   end
 
 private

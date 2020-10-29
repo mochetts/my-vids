@@ -1,0 +1,19 @@
+<div class="w-full md:max-w-6xl flex flex-wrap">
+  <div class="w-full md:w-1/4 p-4 text-center text-gray-200">
+    <%= link_to image_tag(video.thumbnail['url']), video_path(video.id) %>
+  </div>
+  <div class="w-full md:w-3/4 p-4 text-left flex flex-col">
+    <div class="text-xl text-black-700 flex flex-row items-center">
+      <span class="mr-4">
+        <%= link_to video.title, video_path(video.id) %>
+      </span>
+      <% if video.needs_subscription? %>
+        <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold flex items-center text-indigo-100">
+          subscrirption
+        </span>
+      <% end %>
+    </div>
+    <div class="text-sm text-gray-700 mt-2"><%= video.short_description %></div>
+    <div class="text-sm text-gray-700 mt-4"><%= video.created_at %></div>
+  </div>
+</div>

@@ -9,10 +9,10 @@ private
 
   def authenticate
     if session_expired?
-      redirect_to new_session_url, notice: 'Your session expired'
+      session[:intented_url] = request.url
+      redirect_to new_session_url, notice: 'You need to sign in'
     elsif needs_refresh?
       oauth_session.refresh
-    else
     end
   end
 
@@ -22,6 +22,10 @@ private
 
   def needs_refresh?
     oauth_session.needs_refresh?
+  end
+
+  def oauth_session
+    Current.session
   end
 
 end

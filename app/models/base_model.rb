@@ -10,6 +10,8 @@ class BaseModel
 
     # Add instance varialbes for all attrs
     attrs.each do |attr, value|
+      attr = 'id' if attr == '_id'
+
       instance_var = "@#{attr}".to_sym
       # Set instance variable
       instance_variable_set(instance_var, value)

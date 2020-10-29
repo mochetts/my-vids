@@ -19,4 +19,8 @@ class VideoDecorator < BaseDecorator
   def created_at
     DateTime.parse(video.created_at).strftime('%b %e, %Y')
   end
+
+  def player_url
+    "https://player.zype.com/embed/#{video.id}.html?access_token=#{Current.session.access_token}"
+  end
 end

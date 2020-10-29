@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<div class="w-10/12 md:w-8/12 flex flex-col items-center">
+  <div class="w-full">
+    <div class="relative pb-9/16">
+      <iframe src="<%= @video.player_url %>" width="100%" height="100%" allowfullscreen class="absolute top-0 left-0">
+      </iframe>
+    </div>
+  </div>
+  <div class="flex flex-col mt-5 w-full divide-y divide-gray-400">
+    <div class="w-full flex flex-col pb-4">
+      <span class="font-bold"><%= @video.title %></span>
+      <span class="text-xs text-gray-700 mt-2`"><%= @video.created_at %></span>
+    </div>
+    <div class="pt-4">
+      <p><%= @video.description %></p>
+    </div>
+  </div>
+</div>

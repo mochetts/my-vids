@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ZypeChallenge</title>
+    <title>My Vids</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +11,7 @@
     <%= yield :head %>
   </head>
 
-  <body class="bg-gray-200 flex justify-center items-center flex-col w-full">
+  <body class="bg-gray-200 flex items-center flex-col w-full">
     <%= render "shared/navbar" %>
 
     <% flash.each do |type, msg| %>
@@ -30,7 +30,7 @@
       <% end %>
     <% end %>
 
-    <div class="mt-10 w-full flex justify-center">
+    <div class="mt-10 w-full flex justify-center flex-grow">
       <%= yield %>
     </div>
   </body>

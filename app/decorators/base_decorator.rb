@@ -2,15 +2,22 @@ class BaseDecorator
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::UrlHelper
 
+  attr_reader :object
+
+  delegate(
+    :id,
+    to: :object
+  )
+
   def initialize(object)
     @object = object
   end
 
   def self.decorates(name)
-    define_method(name) { @object }
+    define_method(name) { object }
   end
 
   def self.to_proc
-    ->(video) { new(video) }
+    ->(o) { new(o) }
   end
 end
