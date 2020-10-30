@@ -15,12 +15,17 @@ User without subscriptions:
 email: test2@test.com
 password: password
 ```
+
 ## Gems & Libraries used
 
 **Zype-gem:** Used to perform some of the API calls needed to Zype servers ([source](https://github.com/zype/zype-gem)).
 **better_settings:** Used as a store of application settings for the rails app ([source](https://github.com/ElMassimo/better_settings)).
 **pry:** Used for development purposes. Allows a better debugging & console experience ([source](https://github.com/pry/pry)).
 **tailwindcss:** Utility first css framework used to build the UI components. Allows fast prototyping. ([source](https://github.com/tailwindlabs/tailwindcss)).
+
+## Dev Setup
+
+You'll need to replace the included `config/development.yml.example` file with `config/development.yml` and fill in all the zype credentails.
 
 ## Architecture
 
@@ -45,6 +50,11 @@ The presenter pattern was used to manage the presentation of the list of videos.
 
 ##### Adapter
 The adapter pattern was used to interface the data store. With a dsl `source_from` declared in the models we are allowed to determine which data source is used for each model. In this demo the Zype wrapper is used, but this can be changed for any other implementation as soon as it meets the interface contract.
+
+### Considerations
+
+##### Session TTL
+Zype sessions last for 7 days. However, the requirements are that we need to make sessions last 14 days. So we need to refresh the token granted by the Zype's Oauth mechanism before it expires so that we can use it for the requested time. In order to do so, we keep track of 2 expiration dates: Zype's (7 days) and MyVids (14 days). This allows us to refresh the token one day before Zype's expiration date overriding it by our own session expiration mechanism.
 
 ## Next Steps
 
