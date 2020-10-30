@@ -56,6 +56,9 @@ The adapter pattern was used to interface the data store. With a dsl `source_fro
 ##### Session TTL
 Zype sessions last for 7 days. However, the requirements are that we need to make sessions last 14 days. So we need to refresh the token granted by the Zype's Oauth mechanism before it expires so that we can use it for the requested time. In order to do so, we keep track of 2 expiration dates: Zype's (7 days) and MyVids (14 days). This allows us to refresh the token one day before Zype's expiration date overriding it by our own session expiration mechanism.
 
+##### Caching
+In order to save requests to the Zype API and to bring some performance boost we leveraged rails caching for the videos list and the video details page.
+
 ## Next Steps
 
 ##### Testing
