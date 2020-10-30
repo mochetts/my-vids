@@ -36,6 +36,10 @@ class VideoDecorator < BaseDecorator
     ['video', video.cache_key, current_session.cache_key].join('/')
   end
 
+  def back_to_library_url
+    current_session.try(:last_library_url) || :back
+  end
+
 private
 
   # We can't use the Players API as it doesn't accept an access token.

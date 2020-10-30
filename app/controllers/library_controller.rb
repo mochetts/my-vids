@@ -2,6 +2,7 @@ class LibraryController < ApplicationController
 
   # GET /library
   def index
+    session[:last_library_url] = request.url
     @library = LibraryPresenter.new(**page_params)
   end
 
