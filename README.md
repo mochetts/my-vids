@@ -5,12 +5,14 @@ This is a proof of concept Ruby On Rails app that utilizes Zype to fetch and dis
 ## Demo
 
 To see this project running visit https://my-vids.herokuapp.com/. You use the following credentials to access the system:
-User with subscriptions:
+
+**User with subscriptions**
 ```
 email: test@test.com
 password: password
 ```
-User without subscriptions:
+
+**User without subscriptions:**
 ```
 email: test2@test.com
 password: password
