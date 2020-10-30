@@ -25,7 +25,7 @@ password: password
 
 ## Dev Setup
 
-You'll need to replace the included `config/development.yml.example` file with `config/development.yml` and fill in all the zype credentails.
+You'll need to replace the included `config/development.yml.example` file with `config/development.yml` and fill in all the zype credentials.
 
 ## Architecture
 
