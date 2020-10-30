@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     oauth_session = new_session
     if !oauth_session.has_errors?
       oauth_session.save_to(session)
-      redirect_to session.delete(:intented_url) || videos_path
+      redirect_to session.delete(:intented_url) || library_index_path
     else
       redirect_back alert: oauth_session.errors.join(', '), fallback_location: new_session_path
     end

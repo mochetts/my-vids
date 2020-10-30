@@ -1,8 +1,8 @@
-<% cache(@videos) do %>
-  <div class="">
-    <% if @videos.any? %>
-      <% @videos.each do |video| %>
-        <%= render "videos/video", video: video %>
+<% cache(@library) do %>
+  <div>
+    <% if @library.videos.any? %>
+      <% @library.videos.each do |video| %>
+        <%= render 'library/video', video: video %>
       <% end %>
     <% else %>
       <div class="w-full items-center flex flex-col justify-center min-h-screen">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="w-full fixed bottom-0 bg-white text-center px-2 py-4">
-    <%= @videos.prev_link %>
-    <%= @videos.next_link %>
+    <%= @library.prev_link %>
+    <%= @library.next_link %>
   </div>
 <% end %>
