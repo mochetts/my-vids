@@ -18,10 +18,10 @@ password: password
 
 ## Gems & Libraries used
 
-**Zype-gem:** Used to perform some of the API calls needed to Zype servers ([source](https://github.com/zype/zype-gem)).
-**better_settings:** Used as a store of application settings for the rails app ([source](https://github.com/ElMassimo/better_settings)).
-**pry:** Used for development purposes. Allows a better debugging & console experience ([source](https://github.com/pry/pry)).
-**tailwindcss:** Utility first css framework used to build the UI components. Allows fast prototyping. ([source](https://github.com/tailwindlabs/tailwindcss)).
+- **Zype-gem:** Used to perform some of the API calls needed to Zype servers ([source](https://github.com/zype/zype-gem)).
+- **better_settings:** Used as a store of application settings for the rails app ([source](https://github.com/ElMassimo/better_settings)).
+- **pry:** Used for development purposes. Allows a better debugging & console experience ([source](https://github.com/pry/pry)).
+- **tailwindcss:** Utility first css framework used to build the UI components. Allows fast prototyping. ([source](https://github.com/tailwindlabs/tailwindcss)).
 
 ## Dev Setup
 
