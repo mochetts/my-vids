@@ -27,7 +27,7 @@ password: password
 My vids leverages the well known MVC paradigm for it's architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the structure of the code. 
 
 ![zype](https://user-images.githubusercontent.com/3678598/97709680-7f1f2c80-1a99-11eb-9cf1-b6285b28168b.jpeg)
-<sub><sup>_<p align="center">1. Architecutral diagram</p>_</sub><sup>
+_<p align="center">1. Architecutral diagram</p>_
 
 ### Design Patterns
 
