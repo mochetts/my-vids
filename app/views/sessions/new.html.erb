@@ -1,1 +1,3 @@
-<%= render 'form', session: @session %>
+<% cache do %>
+  <%= render 'form', session: @session %>
+<% end %>

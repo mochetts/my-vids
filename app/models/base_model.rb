@@ -53,4 +53,8 @@ class BaseModel
   def has_errors?
     errors.any?
   end
+
+  def cache_key
+    [self.class, self.id].join('/')
+  end
 end

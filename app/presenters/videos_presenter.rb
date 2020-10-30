@@ -19,6 +19,10 @@ class VideosPresenter < BasePresenter
     has_prev_page? ? link_to('<< Prev', videos_path(page: prev_page, per_page: per_page), class: pagination_links_class) : ''
   end
 
+  def cache_key
+    ['videos', current_session.cache_key, page, per_page].join('/')
+  end
+
 private
 
   def has_prev_page?

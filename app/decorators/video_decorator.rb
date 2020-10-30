@@ -32,6 +32,10 @@ class VideoDecorator < BaseDecorator
     "https://player.zype.com/embed/#{video.id}.html?#{player_access_query}"
   end
 
+  def cache_key
+    ['video', video.cache_key, current_session.cache_key].join('/')
+  end
+
 private
 
   # We can't use the Players API as it doesn't accept an access token.

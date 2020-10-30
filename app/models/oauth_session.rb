@@ -82,6 +82,13 @@ class OauthSession < BaseModel
     end
   end
 
+  # Cache key used for view caching
+  #
+  # @return [String]
+  def cache_key
+    try(:username) || 'public'
+  end
+
 private
 
   def refresh_token_params

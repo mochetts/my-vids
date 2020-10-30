@@ -1,24 +1,26 @@
-<div class="w-10/12 md:w-8/12 flex flex-col items-center">
-  <div class="w-full">
-    <div class="relative pb-9/16">
-      <iframe src="<%= @video.player_url %>" width="100%" height="100%" allowfullscreen class="absolute top-0 left-0">
-      </iframe>
-    </div>
-  </div>
-  <div class="flex flex-col mt-5 w-full divide-y divide-gray-400">
-    <div class="w-full flex flex-col pb-4">
-      <div class="flex">
-        <span class="font-bold flex-grow"><%= @video.title %></span>
-        <% if @video.needs_subscription? && !@video.user_is_entitled? %>
-          <button class="bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
-            Subscribe Now
-          </button>
-        <% end %>
+<% cache(@video) do %>
+  <div class="w-10/12 md:w-8/12 flex flex-col items-center">
+    <div class="w-full">
+      <div class="relative pb-9/16">
+        <iframe src="<%= @video.player_url %>" width="100%" height="100%" allowfullscreen class="absolute top-0 left-0">
+        </iframe>
       </div>
-      <span class="text-xs text-gray-700 mt-2`"><%= @video.created_at %></span>
     </div>
-    <div class="pt-4">
-      <p><%= @video.description %></p>
+    <div class="flex flex-col mt-5 w-full divide-y divide-gray-400">
+      <div class="w-full flex flex-col pb-4">
+        <div class="flex">
+          <span class="font-bold flex-grow"><%= @video.title %></span>
+          <% if @video.needs_subscription? && !@video.user_is_entitled? %>
+            <button class="bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
+              Subscribe Now
+            </button>
+          <% end %>
+        </div>
+        <span class="text-xs text-gray-700 mt-2`"><%= @video.created_at %></span>
+      </div>
+      <div class="pt-4">
+        <p><%= @video.description %></p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
