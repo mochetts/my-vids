@@ -33,7 +33,7 @@ You'll need to copy and rename the included `config/development.yml.example` fil
 
 My Vids leverages the well known MVC paradigm for its architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the code. 
 
-![zype](https://user-images.githubusercontent.com/3678598/97709680-7f1f2c80-1a99-11eb-9cf1-b6285b28168b.jpeg)
+![zype](https://user-images.githubusercontent.com/3678598/97731546-06799980-1ab4-11eb-8851-7b28b352b275.png)
 _<p align="center">1. Architecutral diagram</p>_
 
 ### Design Patterns
@@ -48,7 +48,7 @@ Besides this usage, the singleton pattern was used to keep an instance of the cu
 The decorator pattern was used to decorate videos when displaying them to the user. This is a thin wrapper on top of the video model that allows to expose to the views only the properties they need. You can find the video decorator [here](https://github.com/mochetts/my-vids/blob/master/app/decorators/video_decorator.rb).
 
 ##### Presenter
-The presenter pattern was used to manage the presentation of the videos library. We want to paginate the list so a presenter is a good and abstract way of managing this pagination. You can find the videos presenter [here](https://github.com/mochetts/my-vids/blob/master/app/presenters/videos_presenter.rb).
+The presenter pattern was used to manage the presentation of the videos library. We want to paginate the list so a presenter is a good and abstract way of managing this pagination. You can find the library presenter [here](https://github.com/mochetts/my-vids/blob/master/app/presenters/library_presenter.rb).
 
 ##### Adapter
 The adapter pattern was used to interface the data store. With a dsl `source_from` declared in the models we are able to determine which data source is used for each model. In this demo the Zype wrappers are used, but this can be changed for any other implementation that fulfills the interface contract.
