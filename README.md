@@ -43,7 +43,7 @@ You can get these from Zype's admin tool.
 
 My Vids leverages the well known MVC paradigm for its architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the code.
 
-![zype](https://user-images.githubusercontent.com/3678598/97731546-06799980-1ab4-11eb-8851-7b28b352b275.png)
+![zype](https://user-images.githubusercontent.com/3678598/97733275-68d39980-1ab6-11eb-83df-70928530ee93.png)
 _<p align="center">1. Architecutral diagram</p>_
 
 ### Design Patterns
