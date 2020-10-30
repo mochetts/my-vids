@@ -58,3 +58,5 @@ gem "better_settings", "~> 1.0"
 gem "pry", "~> 0.13.1"
 
 gem "pry-rails", "~> 0.3.9"
+
+gem "dalli", "~> 2.7"
