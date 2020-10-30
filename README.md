@@ -20,18 +20,28 @@ password: password
 
 ## Gems & Libraries used
 
-- **Zype-gem:** Used to perform some of the API calls needed to Zype servers ([source](https://github.com/zype/zype-gem)).
+- **zype-gem:** Used to perform some of the API calls needed to Zype servers ([source](https://github.com/zype/zype-gem)).
 - **better_settings:** Used as a store of application settings ([source](https://github.com/ElMassimo/better_settings)).
 - **pry:** Used for development purposes. Allows a better debugging & console experience ([source](https://github.com/pry/pry)).
 - **tailwindcss:** Utility first css framework used to build the UI components. Allows fast prototyping. ([source](https://github.com/tailwindlabs/tailwindcss)).
 
-## Dev Setup
+## Development Setup
 
 You'll need to copy and rename the included `config/development.yml.example` file with `config/development.yml` and fill in all the zype credentials.
 
+## Production Setup
+
+You'll need to add the following environment variables to your server:
+- ZYPE_API_KEY : _Zype's api key_
+- ZYPE_APP_KEY : _Zype's app key_
+- ZYPE_CLIENT_ID : _Zype's client id_
+- ZYPE_CLIENT_SECRET : _Zype's client secret_
+
+You can get these from Zype's admin tool.
+
 ## Architecture
 
-My Vids leverages the well known MVC paradigm for its architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the code. 
+My Vids leverages the well known MVC paradigm for its architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the code.
 
 ![zype](https://user-images.githubusercontent.com/3678598/97731546-06799980-1ab4-11eb-8851-7b28b352b275.png)
 _<p align="center">1. Architecutral diagram</p>_
