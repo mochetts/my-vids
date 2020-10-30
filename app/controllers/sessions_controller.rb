@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   # DELETE /sessions
   def destroy
     session.clear
-    redirect_back fallback_location: new_session_path
+    redirect_back fallback_location: new_session_path, notice: 'You are now signed out'
   end
 
 private
