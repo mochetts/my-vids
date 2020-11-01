@@ -1,0 +1,14 @@
+@keyframes image-loader-animation {
+  0%     { background-color:#7f92b2; }
+  50.0%  { background-color: #e2e8f0; }
+  100.0%  { background-color:#7f92b2; }
+}
+
+.image-loader {
+  animation-name: image-loader-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  background-color: #7f92b2;
+}
