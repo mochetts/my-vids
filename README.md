@@ -61,14 +61,15 @@ The decorator pattern was used to decorate videos when displaying them to the us
 The presenter pattern was used to manage the presentation of the videos library. We want to paginate the list so a presenter is a good and abstract way of managing this pagination. You can find the library presenter [here](https://github.com/mochetts/my-vids/blob/master/app/presenters/library_presenter.rb).
 
 ##### Adapter
-The adapter pattern was used to interface the data store. With a dsl `source_from` declared in the models we are able to determine which data source is used for each model. In this demo the Zype wrappers are used, but this can be changed for any other implementation that fulfills the interface contract.
+The adapter pattern was used to interface the data store. With a dsl `source_from` declared in the models we are able to determine which data source is used for each model. In this demo, only Zype wrappers were implemented and used, but this can be changed for any other implementation that fulfills the interface contract.
 
 ### Considerations
 
 ##### Session TTL
-Zype sessions last for 7 days. However, the requirements are that we need to make sessions to last 14 days. So we need to refresh the token granted by the Zype's Oauth mechanism before it expires so that we can use it for the required time. In order to do so, we keep track of 2 expiration dates, Zype's (7 days) and MyVids (14 days). This allows us to refresh the token one day before Zype's expiration date permitting us to use our own session expiration mechanism.
+Zype sessions last for 7 days. However, the requirements are that we need to make sessions to last 14 days. This means that we need to refresh the token granted by Zype's Oauth mechanism before it expires so that we can keep the session alive for the required time. In order to do so, we keep track of 2 expiration dates
+: Zype's (7 days) and MyVids (14 days). This allows us to refresh Zype's token one day before its expiration and leave the session expiration mechanism to MyVids.
 
-For this, an `OauthSession` model is present as part of the models structure. This model inherits all the attributes from the from zype's oauth authentication response. Besides that, the attributes of this model get persisted to the web session so that user's can stay logged in for the requested 14 days.
+For this, an `OauthSession` model is present as part of the models structure. This model inherits all the attributes from zype's oauth authentication response. Besides that, the attributes of this model get persisted to the web session so that user's can stay logged in for the requested 14 days.
 
 ##### Caching
 In order to save requests to the Zype API and bring a performance boost to the user experience we leveraged rails caching for the videos list and the video details page.
