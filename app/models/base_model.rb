@@ -10,7 +10,7 @@ class BaseModel
 
     # Add instance varialbes for all attrs
     attrs.each do |attr, value|
-      attr = 'id' if attr == '_id'
+      attr = 'id' if attr == '_id' || attr == :_id
 
       instance_var = "@#{attr}".to_sym
       # Set instance variable
@@ -52,6 +52,14 @@ class BaseModel
 
   def has_errors?
     errors.any?
+  end
+
+  def attributes
+    instance_variables.inject({}) do |attrs, instance_var|
+      value = instance_variable_get(instance_var)
+      key = instance_var.to_s.tr('@', '').to_sym
+      attrs.merge(key => value)
+    end
   end
 
   def cache_key

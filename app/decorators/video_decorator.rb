@@ -17,7 +17,7 @@ class VideoDecorator < BaseDecorator
   end
 
   def thumbnail
-    video.thumbnails.find { |t| t['height'] == 480 } || video.thumbnails.first
+    video.thumbnails.find { |t| t.symbolize_keys[:height] == 480 } || video.thumbnails.first
   end
 
   def created_at
