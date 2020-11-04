@@ -1,3 +1,5 @@
+require File.expand_path('../services/global', __dir__)
+
 class Settings < BetterSettings
   source Rails.root.join('config', 'application.yml'), namespace: Rails.env
   source Rails.root.join('config', 'development.yml'), namespace: Rails.env, optional: true if Rails.env.development?

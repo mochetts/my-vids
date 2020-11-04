@@ -16,7 +16,7 @@ RSpec.describe VideosController do
 
       it 'should ask for credentials when not authenticated' do
         get :show, params: { id: video_attrs[:_id] }
-        response.should redirect_to new_session_path
+        expect(response).to redirect_to new_session_path
       end
 
       it 'refreshes token', authenticated: { created_at: 8.days.ago.to_i } do

@@ -2,15 +2,14 @@
 
 <h1 align="center">
   <p align="center">
-    <a href="https://travis-ci.org/ElMassimo/better_settings">
-      <img alt="Build Status" src="https://travis-ci.org/ElMassimo/better_settings.svg"/>
+    <a href="https://travis-ci.org/mochetts/my-vids">
+      <img alt="Build Status" src="https://travis-ci.org/mochetts/my-vids.svg"/>
     </a>
     <a href='https://coveralls.io/github/mochetts/my-vids?branch=master'>
       <img src='https://coveralls.io/repos/github/mochetts/my-vids/badge.svg?branch=master' alt='Coverage Status' />
     </a>
   </p>
 </h1>
-
 
 This is a proof of concept Ruby On Rails app that utilizes Zype to fetch and display videos from a given content creator.
 
@@ -88,7 +87,5 @@ In order to save requests to the Zype API and bring a performance boost to the u
 
 ## Next Steps
 
-##### Testing
-We need to add testing for the project:
-- Unit tests using Rspec.
-- UI tests (integration tests) using capybara / selenium.
+- Add UI tests (integration tests) using capybara / selenium.
+- Implement the "Subscribe" functionality.
