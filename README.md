@@ -1,5 +1,17 @@
 ![image](https://user-images.githubusercontent.com/3678598/97705026-24360700-1a92-11eb-9062-a47497b1e427.png)
 
+<h1 align="center">
+  <p align="center">
+    <a href="https://travis-ci.org/ElMassimo/better_settings">
+      <img alt="Build Status" src="https://travis-ci.org/ElMassimo/better_settings.svg"/>
+    </a>
+    <a href='https://coveralls.io/github/mochetts/my-vids?branch=master'>
+      <img src='https://coveralls.io/repos/github/mochetts/my-vids/badge.svg?branch=master' alt='Coverage Status' />
+    </a>
+  </p>
+</h1>
+
+
 This is a proof of concept Ruby On Rails app that utilizes Zype to fetch and display videos from a given content creator.
 
 ## Demo
