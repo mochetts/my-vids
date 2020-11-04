@@ -101,6 +101,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    json (2.3.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -206,14 +207,11 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    shoulda-matchers (4.4.1)
-      activesupport (>= 4.2.0)
-    simplecov (0.19.1)
+    simplecov (0.17.0)
       docile (~> 1.1)
-      simplecov-html (~> 0.11)
-    simplecov-html (0.12.3)
-    simplecov-rcov (0.2.3)
-      simplecov (>= 0.4.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -282,9 +280,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
-  shoulda-matchers
-  simplecov
-  simplecov-rcov
+  simplecov (= 0.17)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

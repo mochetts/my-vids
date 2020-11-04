@@ -46,14 +46,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
-  gem 'coveralls', require: false
+  gem 'simplecov', '0.17', require: false
+  gem 'coveralls'
 end
 
 group :test, :development do
   gem 'rspec-rails', '~> 4.0'
-  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
