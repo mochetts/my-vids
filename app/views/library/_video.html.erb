@@ -3,7 +3,7 @@
     <%= link_to image_tag(video.thumbnail['url'], class: 'w-full h-64 md:w-64 md:h-40 object-cover image-loader'), video_path(video.id) %>
   </div>
   <div class="w-full md:w-3/4 p-4 text-left flex flex-col">
-    <div class="text-xl text-black-700 flex flex-row items-center">
+    <div class="text-xl text-black-700 flex flex-row items-start">
       <span class="mr-4">
         <%= link_to video.title, video_path(video.id) %>
       </span>
