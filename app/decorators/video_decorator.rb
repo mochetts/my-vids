@@ -25,7 +25,7 @@ class VideoDecorator < BaseDecorator
   end
 
   def user_is_entitled?
-    VideoEntitlement.user_is_entitled_for?(video)
+    current_session.authenticated? && VideoEntitlement.entitled?(video, access_token: current_session.access_token)
   end
 
   def player_url

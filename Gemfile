@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.6.3'
 
@@ -38,7 +38,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "rspec-rails", "~> 4.0"
+  gem 'rspec-rails', '~> 4.0'
 end
 
 group :test do
@@ -47,18 +47,19 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem "rspec-rails", "~> 4.0"
+  gem 'rspec-rails', '~> 4.0'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "zype", "~> 0.20.0"
+gem 'zype', '~> 0.20.0'
 
-gem "better_settings", "~> 1.0"
+gem 'better_settings', '~> 1.0'
 
-gem "pry", "~> 0.13.1"
+gem 'pry', '~> 0.13.1'
 
-gem "pry-rails", "~> 0.3.9"
+gem 'pry-rails', '~> 0.3.9'
 
-gem "dalli", "~> 2.7"
+gem 'dalli', '~> 2.7'

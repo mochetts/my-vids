@@ -12,7 +12,7 @@ private
       session[:intented_url] = request.url
       redirect_to new_session_url, notice: 'You need to sign in'
     elsif needs_refresh?
-      current_session.refresh
+      current_session.refresh.save_to(session)
     end
   end
 

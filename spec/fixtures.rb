@@ -71,3 +71,7 @@ end
 def session_fixture(attrs = {})
   {}.merge(attrs)
 end
+
+def entitled_fixture
+  { 'message' =>  'entitled' }
+end

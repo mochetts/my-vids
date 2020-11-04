@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe VideoDecorator do
-  let(:video) { Video.new(video_fixture) }
+  let(:video) { Video.find(1) }
   let(:decorated_video) { VideoDecorator.new(video) }
 
   before do
-    # Mock video entitlement API call
-    allow(VideoEntitlement).to receive(:user_is_entitled_for?).and_return(true)
+    # Stub API calls
+    allow(My::Videos).to receive(:find).and_return(video_fixture)
+    allow_any_instance_of(My::VideoEntitlements).to receive(:entitled).and_return(entitled_fixture)
   end
 
   context 'should expose the right attributes' do
@@ -45,8 +46,19 @@ RSpec.describe VideoDecorator do
       expect(decorated_video.created_at).to eq DateTime.parse(video.created_at).strftime('%b %e, %Y')
     end
 
-    it 'user_is_entitled' do
-      expect(decorated_video.user_is_entitled?).to eq true
+    context 'user_is_entitled' do
+      it 'authenticated', :authenticated do
+        expect(decorated_video.user_is_entitled?).to eq true
+      end
+
+      it 'not authenticated' do
+        expect(decorated_video.user_is_entitled?).to eq false
+      end
+
+      it 'authenticated but not entitled', :authenticated do
+        allow_any_instance_of(My::VideoEntitlements).to receive(:entitled).and_raise(Zype::Client::UnprocessableEntity)
+        expect(decorated_video.user_is_entitled?).to eq false
+      end
     end
 
     context 'player_url' do

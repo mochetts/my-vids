@@ -4,6 +4,28 @@ class BaseModel
     to: :class,
   )
 
+  class << self
+    def sourced_from(source_class)
+      @source = source_class
+    end
+
+    def source
+      @source
+    end
+
+    def to_proc
+      ->(args) { new(args) }
+    end
+
+    def all(**params)
+      source.all(params: params).map(&self)
+    end
+
+    def find(id)
+      new(source.find(id: id))
+    end
+  end
+
   def initialize(attrs = {})
     # Add the errors bucket.
     attrs.merge!(errors: []) if attrs[:errors].nil?
@@ -20,34 +42,6 @@ class BaseModel
       # Getter
       define_singleton_method(attr) { instance_variable_get(instance_var) }
     end
-  end
-
-  def self.sourced_from(source_class)
-    @source = source_class
-  end
-
-  def self.source
-    @source
-  end
-
-  def self.to_proc
-    ->(args) { new(args) }
-  end
-
-  def self.all(**params)
-    source.all(params: params).map(&self)
-  end
-
-  def self.find(id)
-    begin
-      new(source.find(id: id))
-    rescue Zype::Client::NotFound => e
-      raise ActionController::RoutingError.new('Not Found')
-    end
-  end
-
-  def self.create(**params)
-    new(source.create(params: params))
   end
 
   def has_errors?

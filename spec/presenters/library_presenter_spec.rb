@@ -9,7 +9,7 @@ RSpec.describe LibraryPresenter do
 
   before(:each) do
     # Stub API call
-    My::Videos.stub(:all) do |args|
+    allow(My::Videos).to receive(:all) do |args|
       expect(args[:params]).to eq({ page: page, per_page: per_page, sort: :created_at, order: :desc })
       videos_fixture(page_count) # Return page instances
     end

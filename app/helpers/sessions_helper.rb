@@ -1,5 +1,5 @@
 module SessionsHelper
-  def oauth_session
+  def current_session
     Current.session
   end
 end

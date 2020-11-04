@@ -56,7 +56,15 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before do |config|
-    Current.session = OauthSession.new(config.metadata[:authenticated] ? logged_in_session_fixture : session_fixture)
+    session_attrs = if config.metadata[:authenticated]
+      logged_in_session_fixture(
+        config.metadata[:authenticated].is_a?(Hash) ? config.metadata[:authenticated] : {}
+      )
+    else
+      session_fixture
+    end
+    Current.session = OauthSession.new(session_attrs)
+    Current.session.save_to(session) if config.metadata[:type] == :controller
   end
 end
 

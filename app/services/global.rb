@@ -8,14 +8,6 @@ module Global
   def self.get(*args, &block)
     ENV.fetch(*args, &block)
   rescue KeyError => e
-    Rails.env.server_only { raise e }
-  end
-
-  # Override: In the security audit we use 'fake_config_value' as a way to
-  # validate that all secrets are set as environment variables.
-  if defined?(SECURITY_AUDIT)
-    def self.get(*)
-      'fake_config_value'
-    end
+    raise e unless Rails.env.local?
   end
 end

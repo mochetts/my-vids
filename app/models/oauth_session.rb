@@ -20,7 +20,7 @@ class OauthSession < BaseModel
         **credentials.slice(:username, :password)
       )
       new(oauth_attrs)
-    rescue Zype::Client::Unauthorized => e
+    rescue My::Oauth::Unauthorized => e
       new(errors: ['Wrong email or password'])
     end
   end
@@ -38,9 +38,8 @@ class OauthSession < BaseModel
   # @param params [Hash] the web session
   # @return [Session] self
   def save_to(session)
-    instance_variables.each do |instance_var|
-      session_var = instance_var.to_s.tr('@', '').to_sym
-      session[session_var] = instance_variable_get(instance_var)
+    attributes.each do |key, value|
+      session[key] = value
     end
     self
   end
@@ -74,12 +73,13 @@ class OauthSession < BaseModel
   def refresh
     begin
       oauth_attrs = source.create(params: refresh_token_params)
-      oauth_attrs.each { |attr, value|
-        instance_variable_set("@#{attr}".to_sym, value)
-      }
-    rescue Zype::Client::Unauthorized => e
+      oauth_attrs.each do |attr, value|
+        send("#{attr}=", value)
+      end
+    rescue My::Oauth::Unauthorized => e
       errors << 'Error refreshing token'
     end
+    self
   end
 
   # Cache key used for view caching
@@ -92,8 +92,6 @@ class OauthSession < BaseModel
 private
 
   def refresh_token_params
-    [:username, :password, :refresh_token].inject({}) do |params, instance_var|
-      params[instance_var] = instance_variable_get(instance_var)
-    end.merge(OAUTH_PARAMS)
+    attributes.slice(:username, :password, :refresh_token).merge(OAUTH_PARAMS)
   end
 end

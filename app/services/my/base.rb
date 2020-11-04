@@ -8,7 +8,11 @@ module My::Base
   class_methods do
     def method_missing(method_name, *args, &block)
       if instance.respond_to?(method_name)
-        instance.send(method_name, *args, &block)
+        begin
+          instance.send(method_name, *args, &block)
+        rescue Zype::Client::NotFound => e
+          raise ActionController::RoutingError.new('Not Found')
+        end
       else
         super
       end

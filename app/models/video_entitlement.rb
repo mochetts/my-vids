@@ -1,12 +1,9 @@
 class VideoEntitlement < BaseModel
   sourced_from My::VideoEntitlements
 
-  def self.user_is_entitled_for?(video)
-    begin
-      Current.session.authenticated? && source.entitled(video_id: video.id, access_token: Current.session.access_token)
-      true
-    rescue Zype::Client::GenericError, Zype::Client::UnprocessableEntity => e
-      false
+  class << self
+    def entitled?(video, access_token: nil)
+      source.entitled?(video, access_token: access_token)
     end
   end
 end
