@@ -19,7 +19,7 @@ class LibraryPresenter < BasePresenter
   end
 
   def videos
-    @videos ||= Video.all(page: page, per_page: per_page, sort: :created_at, order: :desc).map(&VideoDecorator)
+    @videos ||= Video.all(page: page, per_page: per_page, sort: :created_at, order: :desc).map(&VideoIndexDecorator)
   end
 
 private

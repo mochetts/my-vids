@@ -54,7 +54,7 @@ You can get these from Zype's admin tool.
 
 My Vids leverages the well known MVC paradigm for its architecture. Besides this, some design patterns were implemented in order to bring calrity, maintenability and extensibility to the code.
 
-![zype](https://user-images.githubusercontent.com/3678598/97733275-68d39980-1ab6-11eb-83df-70928530ee93.png)
+![My Vids](https://user-images.githubusercontent.com/3678598/98251578-a2455280-1f57-11eb-9148-175f85c01f52.png)
 _<p align="center">1. Architectural diagram</p>_
 
 ### Design Patterns
@@ -84,6 +84,22 @@ For this, an `OauthSession` model is present as part of the models structure. Th
 
 ##### Caching
 In order to save requests to the Zype API and bring a performance boost to the user experience we leveraged rails caching for the videos list and the video details page.
+
+## Testing
+
+For now, we only have rspec testing for the project. To run the tests:
+
+```bash
+$ bundle exec rspec
+```
+
+We also have code coverage in place. So after running the above command, you can run this one:
+
+```bash
+open coverage/index.html
+```
+
+...to see the resulting code coverage.
 
 ## Next Steps
 
