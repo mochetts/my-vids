@@ -1,5 +1,5 @@
 <% cache(@library) do %>
-  <div>
+  <div class="p-4 pb-16">
     <% if @library.videos.any? %>
       <% @library.videos.each do |video| %>
         <%= render 'library/video', video: video %>
