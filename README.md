@@ -29,7 +29,7 @@ email: test2@test.com
 password: password
 ```
 
-_Disclaimer: Give the page some time to load. It's using the free version of heroku which puts the server to sleep after some time of inactivity. So it may have to spin it back up._
+_Disclaimer: Give the page some time to load. It's using the free version of heroku which puts the server to sleep after some time of inactivity. So it may need to spin it back up._
 
 ## Gems & Libraries used
 
